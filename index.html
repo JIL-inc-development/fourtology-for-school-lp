@@ -11,6 +11,7 @@
     --gi: clamp(20px, 8.3vw, 120px);     /* 本文ブロックの余白 */
     --sec: clamp(96px, 14vw, 200px);     /* セクション間 */
     --ink: #111111; --gray: #EBEBEB; --sub: #777777; --line: rgba(0,0,0,.15);
+    --win: #C8272E;                      /* ウィナーの赤（先着30名の特典の強調用） */
     --edge: calc(max(0px, (100vw - 1440px) / 2) + var(--gx)); /* 全幅帯の中身を1440px枠に揃える余白 */
   }
   * { box-sizing: border-box; }
@@ -150,12 +151,12 @@
   .row .k { width: 140px; flex: none; color: var(--sub); letter-spacing: 0.12em; }
   .row .v { font-weight: 700; }
   /* 先着30名の特典 */
-  .bonus { margin-top: 40px; border: 1px solid var(--ink); padding: clamp(24px, 2.6vw, 36px) clamp(22px, 2.6vw, 36px) clamp(24px, 2.6vw, 32px); display: flex; flex-direction: column; gap: 18px; }
-  .bonus .ttl { font-size: clamp(22px, 2.2vw, 30px); font-weight: 900; letter-spacing: 0.08em; line-height: 1.4; }
-  .bonus .ttl small { display: block; font-family: Inter, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--sub); margin-bottom: 8px; }
+  .bonus { margin-top: 40px; border: 2px solid var(--win); padding: clamp(24px, 2.6vw, 36px) clamp(22px, 2.6vw, 36px) clamp(24px, 2.6vw, 32px); display: flex; flex-direction: column; gap: 18px; }
+  .bonus .ttl { font-size: clamp(22px, 2.2vw, 30px); font-weight: 900; letter-spacing: 0.08em; line-height: 1.4; color: var(--win); }
+  .bonus .ttl small { display: block; font-family: Inter, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--win); opacity: .75; margin-bottom: 8px; }
   .bonus ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .bonus li { display: flex; gap: 14px; align-items: baseline; font-size: clamp(17px, 1.5vw, 21px); font-weight: 700; letter-spacing: 0.04em; line-height: 1.7; }
-  .bonus li::before { content: ""; flex: none; width: 10px; height: 10px; background: var(--ink); transform: translateY(-2px); }
+  .bonus li::before { content: ""; flex: none; width: 10px; height: 10px; background: var(--win); transform: translateY(-2px); }
   .bonus .note { font-size: 13px; line-height: 1.9; letter-spacing: 0.06em; color: #444; border-top: 1px solid var(--line); padding-top: 14px; }
 
   /* contact */
