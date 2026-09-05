@@ -206,10 +206,17 @@
     .tab { display: none; }
     .fab { display: flex; position: fixed; right: 16px; bottom: 16px; z-index: 60; background: var(--ink); color: #FFF; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; padding: 14px 20px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
     .stmt .bg > div:nth-child(2) { display: none; }
-    .quad-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-    .axis { display: none; }
-    .quad { grid-column: 1; grid-row: 1; grid-template-columns: 1fr; }
-    .quad::before, .quad::after { display: none; }
+    /* 4タイプはスマホでも2x2（PCと同じ見え方）を維持し、文字だけ小さくする */
+    .quad-grid { grid-template-columns: 22px 1fr 22px; grid-template-rows: 22px auto 22px; }
+    .axis { font-size: 10px; letter-spacing: 0.12em; }
+    .quad { gap: 8px; }
+    .tcard .head { padding: 7px 6px 6px; }
+    .tcard .head .ja { font-size: clamp(12px, 3.5vw, 18px); letter-spacing: 0.02em; }
+    .tcard .head .en { font-size: 8px; letter-spacing: 0.12em; }
+    .tcard .sub { font-size: clamp(10px, 2.9vw, 15px); letter-spacing: 0; padding: 6px 5px; }
+    .tcard .body { padding: 10px 6px 12px; }
+    .tcard .keep .lbl { font-size: 10px; letter-spacing: 0.02em; }
+    .tcard .keep .val { font-size: clamp(13px, 3.4vw, 18px); letter-spacing: 0.02em; }
     .cards { grid-template-columns: 1fr; }
     .scenes { grid-template-columns: 1fr; }
     .scene:not(:last-child) { border-bottom: 1px solid var(--line); }
@@ -419,7 +426,7 @@
   <!-- ===== フッター ===== -->
   <div class="footer">
     <div class="top">
-      <a class="brand" href="https://www.fourtology.jp/home" target="_blank" rel="noopener" title="株式会社オードリーコーポレーション">
+      <a class="brand" href="https://www.audrey-corp.jp/" target="_blank" rel="noopener" title="株式会社オードリーコーポレーション">
         <div class="mark">A</div>
         <div><div class="n1">Audrey Corp.</div><div class="n2">株式会社オードリーコーポレーション</div></div>
       </a>
@@ -429,7 +436,7 @@
       <img class="photo" src="images/campus_trees.jpg" alt="" style="object-position: center 72%;">
       <div class="in">
         <div class="t">学生と先生の向き合い方を変える、<br>50問の気質診断。</div>
-        <a class="c" href="https://www.fourtology.jp/home" target="_blank" rel="noopener">コーポレートサイト →</a>
+        <a class="c" href="https://www.audrey-corp.jp/" target="_blank" rel="noopener">コーポレートサイト →</a>
       </div>
     </div>
     <div class="bot" style="justify-content: flex-end;">
