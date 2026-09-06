@@ -70,13 +70,16 @@
 
   /* statement（写真2枚は明るいまま。白い膜を左側にかけて黒文字を重ねる） */
   .stmt-wrap { padding: 24px var(--gx) 0; }
-  /* 上下の余白を少しずらして、写真2枚のつなぎ目が本文の行と行のすき間に来るようにしている */
-  .stmt { position: relative; background: #FFF; color: var(--ink); overflow: hidden; padding: calc(clamp(56px, 8vw, 100px) - clamp(8px, 1vw, 15px)) clamp(24px, 5vw, 72px) calc(clamp(56px, 8vw, 100px) + clamp(8px, 1vw, 15px)); }
+  .stmt { position: relative; background: #FFF; color: var(--ink); overflow: hidden; padding: clamp(18px, 2.1vw, 30px) clamp(24px, 5vw, 72px) clamp(56px, 8vw, 100px); }
   .stmt .bg { position: absolute; inset: 0; display: flex; flex-direction: column; }
   .stmt .bg > div { flex: 1 1 0; overflow: hidden; }
+  .stmt .bg > div:first-child { margin-bottom: -1px; }  /* 写真2枚の継ぎ目に1pxの隙間（白い線）が出るのを防ぐ */
   .stmt .bg img { filter: saturate(.95); }
   .stmt .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,.84) 0%, rgba(255,255,255,.78) 40%, rgba(255,255,255,.4) 66%, rgba(255,255,255,.08) 88%, rgba(255,255,255,0) 100%); }
   .stmt .txt { position: relative; display: flex; flex-direction: column; gap: clamp(36px, 4vw, 56px); max-width: 720px; }
+  /* 本文2ブロックだけ上に寄せて上の写真の中に収める。減らした上の余白は「わかる」から、の手前に足すので、
+     「わかる」から、の位置とブロック全体の高さは元のまま */
+  .stmt .txt > div:last-child { margin-top: calc(clamp(56px, 8vw, 100px) - clamp(18px, 2.1vw, 30px)); }
   .stmt .p { font-size: clamp(14px, 1.2vw, 17px); line-height: 2.35; font-weight: 700; letter-spacing: 0.06em; }
   .stmt .p span { color: #3F3F3F; }
   .stmt .big { font-size: clamp(34px, 4.2vw, 60px); line-height: 1.5; font-weight: 900; letter-spacing: 0.04em; }
@@ -216,7 +219,8 @@
     .tab { display: none; }
     .fab { display: flex; position: fixed; right: 16px; bottom: 16px; z-index: 60; background: var(--ink); color: #FFF; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; padding: 14px 20px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
     .stmt .bg > div:nth-child(2) { display: none; }
-    .stmt { padding: clamp(56px, 8vw, 100px) clamp(24px, 5vw, 72px); }  /* 写真1枚なのでつなぎ目の調整は不要 */
+    .stmt { padding: clamp(56px, 8vw, 100px) clamp(24px, 5vw, 72px); }  /* 写真1枚なので上寄せは不要 */
+    .stmt .txt > div:last-child { margin-top: 0; }
     .stmt .shade { background: rgba(255,255,255,.82); }
     /* 4タイプはスマホでも2x2（PCと同じ見え方）を維持し、文字だけ小さくする */
     .quad-grid { grid-template-columns: 22px 1fr 22px; grid-template-rows: 22px auto 22px; }
