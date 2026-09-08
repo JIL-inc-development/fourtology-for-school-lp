@@ -141,7 +141,8 @@
   .head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding: var(--sec) var(--gi) 0; }
 
   /* stats */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); padding: 90px var(--gi) 0; }
+  /* 2列目（30,000人以上）は文字数が多いので列幅を広めに配分する */
+  .stats { display: grid; grid-template-columns: 0.85fr 1.35fr 1fr 0.8fr; padding: 90px var(--gi) 0; }
   .stat { border-top: 1px solid var(--ink); border-right: 1px solid var(--line); padding: 26px 24px 30px 30px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
   .stat:first-child { padding-left: 0; }
   .stat:last-child { border-right: 0; padding-right: 0; }
